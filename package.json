@@ -1,0 +1,10 @@
+{
+  "name": "api.lolicon.app-docs",
+  "scripts": {
+    "serve": "docsify serve"
+  },
+  "repository": "https://github.com/Tsuk1ko/api.lolicon.app-docs.git",
+  "author": "神代綺凜 <i@loli.best>",
+  "license": "MIT",
+  "private": true
+}
