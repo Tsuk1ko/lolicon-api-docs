@@ -14,13 +14,19 @@
 7. 请**节制**![](assets/img/jz.png)，冲太多对身体不好
    ![](assets/img/lx.jpg)
 
-## 状况
+## 现状
 
 目前已将 API 迁移出我个人的服务器并转用某些白嫖服务，因此我将限制放开了，不再需要申请 apikey 并且一次允许返回的数量增加了，但这也意味着可能存在一些来自服务商的隐性限制。
 
-如果服务因超出限制而宕掉，我不对此负责，请理性使用。
+如果服务因超出限制而宕掉，我不对此负责，**请理性使用**。
 
 API v2 正计划开发中，将会提供更丰富的搜索和筛选功能。
+
+## 可用性
+
+炸了就说明有人**不理性**
+
+<iframe src="availability.html" height="200" scrolling="no" style="border:none;margin:0"></iframe>
 
 ## Telegram Bot
 
