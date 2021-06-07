@@ -22,9 +22,9 @@
 
 API v2 正计划开发中，将会提供更丰富的搜索和筛选功能。
 
-## 可用性
+## 最近一小时可用性
 
-炸了就说明有人**不理性**
+炸了就说明有憨批搁那拿爬虫CC
 
 <iframe src="availability.html" height="200" scrolling="no" style="border:none;margin:0"></iframe>
 
