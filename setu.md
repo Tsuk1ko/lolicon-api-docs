@@ -54,7 +54,7 @@ Content-Type: application/json
 | `proxy`      |  `string`  | `i.pixiv.cat`  | 设置图片地址所使用的在线反代服务，你也可以设置为任何假值(`""`,`false`,`null`)来得到原始的图片地址                            |
 | `dateAfter`  |  `number`  |                | 返回在这个时间及以后上传的作品；时间戳，单位为毫秒                                                                           |
 | `dateBefore` |  `number`  |                | 返回在这个时间及以前上传的作品；时间戳，单位为毫秒                                                                           |
-| `dsc`        | `boolean`  |    `false`     | 设置为任何真值以禁用对某些缩写`keyword`和`tag`的自动转换                                                                     |
+| `dsc`        | `boolean`  |    `false`     | 设置为任意真值以禁用对某些缩写`keyword`和`tag`的自动转换                                                                     |
 
 #### 发送数组参数
 
@@ -98,6 +98,20 @@ https://i.pixiv.cat
 i.pixiv.cat/{{path}}
 https://i.pixiv.cat/{{path}}
 ```
+
+#### 关于 `dsc`
+
+API 内部包含少量规则，会对某些`keyword`和`tag`进行转换，使某些不适合搜索的词变得可以按预期进行搜索，它们通常是一些手游或者人物的简称，例如
+
+```
+fgo -> ['Fate/GrandOrder', 'Fate/Grand Order', 'FateGrandOrder']
+pcr -> ['公主连结', 'プリコネ', 'プリンセスコネクト']
+gbf -> ['碧蓝幻想', 'グラブル', 'グランブルーファンタジー']
+舰b -> ['碧蓝航线', 'アズレン', 'アズールレーン', 'AzurLane']
+舰c -> ['舰队collection']
+```
+
+将`dsc`设置为任意真值可以禁用这些转换
 
 ### 响应
 
