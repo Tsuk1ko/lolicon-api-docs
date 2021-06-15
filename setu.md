@@ -51,7 +51,7 @@ Content-Type: application/json
 | `keyword`    |  `string`  |                | 返回从标题、作者、标签中按指定关键字模糊搜索的结果                                                                           |
 | `tag`        | `string[]` |                | 返回同时含有所有指定标签的作品，最多`3`个；仅按这两种方式匹配：(1)完全匹配 (2)`角色名(出处)`形式的标签中匹配`角色名`或`出处` |
 | `size`       | `string[]` | `["original"]` | 返回指定图片规格的地址，可选`original`,`regular`,`small`,`thumb`,`mini`                                                      |
-| `proxy`      |  `string`  | `i.pixiv.cat`  | 设置图片地址所使用的在线反代服务，你也可以设置为任何假值(`""`,`false`,`null`)来得到原始的图片地址                            |
+| `proxy`      |  `string`  | `i.pixiv.cat`  | 设置图片地址所使用的在线反代服务，你也可以设置为任意假值(`""`,`0`,`false`,`null`)来得到原始的图片地址                        |
 | `dateAfter`  |  `number`  |                | 返回在这个时间及以后上传的作品；时间戳，单位为毫秒                                                                           |
 | `dateBefore` |  `number`  |                | 返回在这个时间及以前上传的作品；时间戳，单位为毫秒                                                                           |
 | `dsc`        | `boolean`  |    `false`     | 设置为任意真值以禁用对某些缩写`keyword`和`tag`的自动转换                                                                     |
