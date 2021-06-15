@@ -51,6 +51,7 @@ pre::after {
   padding: 1.25rem 1.5rem;
 }
 .markdown-section pre > code {
+  display: inline;
   padding: 0;
   margin: 0;
 }
