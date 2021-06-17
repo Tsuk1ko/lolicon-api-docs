@@ -30,13 +30,13 @@
 
 ## API v2
 
-```
+```http
 GET https://api.lolicon.app/setu/v2
 ```
 
 或
 
-```
+```http
 POST https://api.lolicon.app/setu/v2
 Content-Type: application/json
 ```
@@ -60,7 +60,7 @@ Content-Type: application/json
 
 GET 请求可以通过追加同名参数来发送数组，例如
 
-```
+```http
 GET https://api.lolicon.app/setu/v2?size=original&size=regular
 ```
 
@@ -76,13 +76,14 @@ GET https://api.lolicon.app/setu/v2?size=original&size=regular
 
 举个例子，我需要查找“(**萝莉**或**少女**)的(**白丝**或**黑丝**)的色图”，即 (**萝莉** OR **少女**) AND (**白丝** OR **黑丝**)，那么可以这样发送请求
 
-```
+```http
 GET https://api.lolicon.app/setu/v2?tag=萝莉|少女&tag=白丝|黑丝
 ```
 
-```
-POST https://api.lolicon.app/setu/v2
+```http
+POST https://api.lolicon.app/setu/v2 HTTP/1.0
 Content-Type: application/json
+
 {
   "tag": [
     "萝莉|少女",
@@ -93,9 +94,10 @@ Content-Type: application/json
 
 特别地，对于 POST 请求，你可以直接发送二维数组，不需要特地使用`|`拼接
 
-```
+```http
 POST https://api.lolicon.app/setu/v2
 Content-Type: application/json
+
 {
   "tag": [
     ["萝莉", "少女"],
@@ -116,6 +118,10 @@ Content-Type: application/json
 | `thumb`    | https://i.pixiv.cat/c/250x250_80_a2/img-master/img/2021/06/14/17/25/59/90551655_p0_square1200.jpg |
 | `mini`     | https://i.pixiv.cat/c/48x48/img-master/img/2021/06/14/17/25/59/90551655_p0_square1200.jpg         |
 
+你可能发现了，`small`,`thumb`,`mini`这些规格的地址中的参数其实是可调的而非定死的，因此如果你有需求，可以造出一个特定大小的缩略图，详见下面的`proxy`说明
+
+若`size`参数不符合上面任何一个规格，最终返回的`urls`将为一个空对象`{}`
+
 #### `proxy`
 
 由于P站资源域名`i.pximg.net`具有防盗链措施，不含`www.pixiv.net` referer 的请求均会 403，所以如果需要直接在网页上展示或在客户端上直接下载必须依靠反代服务
@@ -123,13 +129,14 @@ Content-Type: application/json
 1. 你可以设置为任何假值(`""`,`0`,`false`,`null`)来得到原始的 i.pximg.net 图片地址
 1. 当不指定协议时，会自动补充`https://`
 1. 可使用以下占位符
-| 占位符     | 说明               |
-| ---------- | ------------------ |
-| `{{pid}}`  | 作品 pid           |
-| `{{p}}`    | 作品所在页         |
-| `{{uid}}`  | 作者 uid           |
-| `{{ext}}`  | 图片扩展名         |
-| `{{path}}` | 图片地址的相对路径 |
+| 占位符         | 说明                  | 实际值（以 90551655_p0 为例） |
+| -------------- | --------------------- | ----------------------------- |
+| `{{pid}}`      | 作品 pid              | 90551655                      |
+| `{{p}}`        | 作品所在页            | 0                             |
+| `{{uid}}`      | 作者 uid              | 43454954                      |
+| `{{ext}}`      | 图片扩展名 (original) | jpg                           |
+| `{{path}}`     | 图片地址的相对路径    | 根据规格不同而不同            |
+| `{{datePath}}` | 相对路径中的日期部分  | 2021/06/14/17/25/59           |
 
 例：以下四种是等价的
 
@@ -139,6 +146,19 @@ https://i.pixiv.cat
 i.pixiv.cat/{{path}}
 https://i.pixiv.cat/{{path}}
 ```
+
+若你使用了占位符，但没有用到`{{path}}`，则`size`参数是无意义的，不管什么规格返回的地址都将相同
+
+##### 利用占位符自定义缩略图规格
+
+上面说到可以造特定大小的缩略图，格式大概是这样
+
+```
+https://i.pixiv.cat/c/<size>x<size>/img-master/img/{{datePath}}/{{pid}}_p{{p}}_<master|square>1200.jpg
+```
+
+- `<size>x<size>`这里长宽必须相同，最大为`600x600`，某些特定的大小会需要加上固定的图片质量参数，就像`small`和`thumb`
+- `<master|square>`控制裁切方式，`master`是等比例缩放（不裁切）使长度或宽度最大为`<size>`，`square`是居中裁切
 
 #### `dsc`
 

@@ -2,7 +2,7 @@
 
 ## API v1
 
-```
+```http
 GET https://api.lolicon.app/setu/v1
 ```
 

@@ -6,13 +6,13 @@
 
 ### IP
 
-```
+```http
 GET https://net.lolicon.app
 ```
 
 ### User Agent
 
-```
+```http
 GET https://net.lolicon.app/ua
 ```
 
@@ -20,7 +20,7 @@ GET https://net.lolicon.app/ua
 
 #### Details
 
-```
+```http
 GET https://net.lolicon.app/detail
 ```
 
