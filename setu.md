@@ -22,7 +22,7 @@
 
 炸了就说明有憨批搁那拿爬虫CC
 
-<iframe src="availability.html" height="200" scrolling="no" style="border:none;margin:0"></iframe>
+<iframe src="setu/availability.html" height="200" scrolling="no" style="border:none;margin:0"></iframe>
 
 ## Telegram Bot
 
@@ -208,3 +208,27 @@ gbf => 碧蓝幻想
 ## 旧版 API 文档
 
 - [v1](setu-v1)
+
+## 目前可以透露的情报
+
+<div class="chartboard pure-g">
+  <div class="pure-u-1 pure-u-sm-1-2">
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <div class="chart h-50">
+          <iframe src="https://charts.mongodb.com/charts-setu-api-qxdzw/embed/charts?id=f973f61b-912b-4dd6-b00a-f9c52db92918&attribution=false"></iframe>
+        </div>
+      </div>
+      <div class="pure-u-1">
+        <div class="chart h-50">
+          <iframe src="https://charts.mongodb.com/charts-setu-api-qxdzw/embed/charts?id=b23a40a5-8c50-48ae-a950-95c81f9b013c&attribution=false"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pure-u-1 pure-u-sm-1-2">
+    <div class="chart h-100">
+      <iframe src="https://charts.mongodb.com/charts-setu-api-qxdzw/embed/charts?id=d44725c5-3392-4851-9053-4232ccad8bd9&attribution=false"></iframe>
+    </div>
+  </div>
+</div>

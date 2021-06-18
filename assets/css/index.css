@@ -66,3 +66,22 @@ pre::after {
 .markdown-section blockquote p {
   font-weight: unset;
 }
+
+.chartboard {
+  max-width: 600px;
+}
+.chart {
+  position: relative;
+}
+.chart iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.h-50 {
+  padding-bottom: 50%;
+}
+.h-100 {
+  padding-bottom: 100%;
+}
