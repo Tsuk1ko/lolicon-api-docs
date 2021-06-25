@@ -81,7 +81,7 @@ GET https://api.lolicon.app/setu/v2?tag=萝莉|少女&tag=白丝|黑丝
 ```
 
 ```http
-POST https://api.lolicon.app/setu/v2 HTTP/1.0
+POST https://api.lolicon.app/setu/v2
 Content-Type: application/json
 
 {
