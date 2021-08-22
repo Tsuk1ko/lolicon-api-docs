@@ -52,8 +52,8 @@ Content-Type: application/json
 | `tag`        | `string[]` |                | 返回匹配指定标签的作品，[详见下文](#tag)                                                                      |
 | `size`       | `string[]` | `["original"]` | 返回指定图片规格的地址，[详见下文](#size)                                                                     |
 | `proxy`      |  `string`  | `i.pixiv.cat`  | 设置图片地址所使用的在线反代服务，[详见下文](#proxy)                                                          |
-| `dateAfter`  |  `number`  |                | 返回在这个时间及以后上传的作品；时间戳，单位为毫秒                                                            |
-| `dateBefore` |  `number`  |                | 返回在这个时间及以前上传的作品；时间戳，单位为毫秒                                                            |
+| `dateAfter`  |   `int`    |                | 返回在这个时间及以后上传的作品；时间戳，单位为毫秒                                                            |
+| `dateBefore` |   `int`    |                | 返回在这个时间及以前上传的作品；时间戳，单位为毫秒                                                            |
 | `dsc`        | `boolean`  |    `false`     | 设置为任意真值以禁用对某些缩写`keyword`和`tag`的自动转换，[详见下文](#dsc)                                    |
 
 #### 关于数组形式的参数
@@ -197,7 +197,7 @@ gbf => 碧蓝幻想
 | `height`     |   `int`    | 原图高度 px                                           |
 | `tags`       | `string[]` | 作品标签，包含标签的中文翻译（有的话）                |
 | `ext`        |  `string`  | 图片扩展名                                            |
-| `uploadDate` |  `number`  | 作品上传日期；时间戳，单位为毫秒                      |
+| `uploadDate` |   `int`    | 作品上传日期；时间戳，单位为毫秒                      |
 | `urls`       |  `object`  | 包含了所有指定`size`的图片地址                        |
 
 ## 其它细节
