@@ -36,11 +36,11 @@ GET https://api.lolicon.app/setu/v1
 | `uid`    |    `int`    | 作者 uid                                                  |
 | `title`  |  `string`   | 作品标题                                                  |
 | `author` |  `string`   | 作者名（入库时，并过滤掉 @ 及其后内容）                   |
-| `url`    |  `string`   | 图片链接（可能存在有些作品因修改或删除而导致 404 的情况） |
 | `r18`    |  `boolean`  | 是否 R18（在色图库中的分类，并非作者标识的 R18）          |
 | `width`  |    `int`    | 原图宽度 px                                               |
 | `height` |    `int`    | 原图高度 px                                               |
 | `tags`   | `string []` | 作品标签，包含标签的中文翻译（有的话）                    |
+| `url`    |  `string`   | 图片链接（可能存在有些作品因修改或删除而导致 404 的情况） |
 
 #### code
 
