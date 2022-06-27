@@ -51,7 +51,7 @@ Content-Type: application/json
 | `keyword`    |  `string`  |                | 返回从标题、作者、标签中按指定关键字模糊匹配的结果，大小写不敏感，性能和准度较差且功能单一，建议使用`tag`代替 |
 | `tag`        | `string[]` |                | 返回匹配指定标签的作品，[详见下文](#tag)                                                                      |
 | `size`       | `string[]` | `["original"]` | 返回指定图片规格的地址，[详见下文](#size)                                                                     |
-| `proxy`      |  `string`  | `i.pixiv.cat`  | 设置图片地址所使用的在线反代服务，[详见下文](#proxy)                                                          |
+| `proxy`      |  `string`  |  `i.pixiv.re`  | 设置图片地址所使用的在线反代服务，[详见下文](#proxy)                                                          |
 | `dateAfter`  |   `int`    |                | 返回在这个时间及以后上传的作品；时间戳，单位为毫秒                                                            |
 | `dateBefore` |   `int`    |                | 返回在这个时间及以前上传的作品；时间戳，单位为毫秒                                                            |
 | `dsc`        | `boolean`  |    `false`     | 设置为任意真值以禁用对某些缩写`keyword`和`tag`的自动转换，[详见下文](#dsc)                                    |
@@ -110,13 +110,13 @@ Content-Type: application/json
 
 以下为五种规格的示例（SFW，请放心打开）
 
-| 规格       | 地址                                                                                              |
-| ---------- | ------------------------------------------------------------------------------------------------- |
-| `original` | https://i.pixiv.cat/img-original/img/2021/06/14/17/25/59/90551655_p0.jpg                          |
-| `regular`  | https://i.pixiv.cat/img-master/img/2021/06/14/17/25/59/90551655_p0_master1200.jpg                 |
-| `small`    | https://i.pixiv.cat/c/540x540_70/img-master/img/2021/06/14/17/25/59/90551655_p0_master1200.jpg    |
-| `thumb`    | https://i.pixiv.cat/c/250x250_80_a2/img-master/img/2021/06/14/17/25/59/90551655_p0_square1200.jpg |
-| `mini`     | https://i.pixiv.cat/c/48x48/img-master/img/2021/06/14/17/25/59/90551655_p0_square1200.jpg         |
+| 规格       | 地址                                                                                             |
+| ---------- | ------------------------------------------------------------------------------------------------ |
+| `original` | https://i.pixiv.re/img-original/img/2021/06/14/17/25/59/90551655_p0.jpg                          |
+| `regular`  | https://i.pixiv.re/img-master/img/2021/06/14/17/25/59/90551655_p0_master1200.jpg                 |
+| `small`    | https://i.pixiv.re/c/540x540_70/img-master/img/2021/06/14/17/25/59/90551655_p0_master1200.jpg    |
+| `thumb`    | https://i.pixiv.re/c/250x250_80_a2/img-master/img/2021/06/14/17/25/59/90551655_p0_square1200.jpg |
+| `mini`     | https://i.pixiv.re/c/48x48/img-master/img/2021/06/14/17/25/59/90551655_p0_square1200.jpg         |
 
 你可能发现了，`small`,`thumb`,`mini`这些规格的地址中的参数其实是可调的而非定死的，因此如果你有需求，可以造出一个特定大小的缩略图，详见下面的`proxy`说明
 
@@ -124,7 +124,7 @@ Content-Type: application/json
 
 #### `proxy`
 
-由于P站资源域名`i.pximg.net`具有防盗链措施，不含`www.pixiv.net` referer 的请求均会 403，所以如果需要直接在网页上展示或在客户端上直接下载必须依靠反代服务
+由于P站资源域名`i.pximg.net`具有防盗链措施，不含`www.pixiv.net` referrer 的请求均会 403，所以如果需要直接在网页上展示或在客户端上直接下载必须依靠反代服务
 
 1. 你可以设置为任何假值(`""`,`0`,`false`,`null`)来得到原始的 i.pximg.net 图片地址
 1. 当不指定协议时，会自动补充`https://`
@@ -141,10 +141,10 @@ Content-Type: application/json
 例：以下四种是等价的
 
 ```
-i.pixiv.cat
-https://i.pixiv.cat
-i.pixiv.cat/{{path}}
-https://i.pixiv.cat/{{path}}
+i.pixiv.re
+https://i.pixiv.re
+i.pixiv.re/{{path}}
+https://i.pixiv.re/{{path}}
 ```
 
 若你使用了占位符，但没有用到`{{path}}`，则`size`参数是无意义的，不管什么规格返回的地址都将相同
@@ -154,7 +154,7 @@ https://i.pixiv.cat/{{path}}
 上面说到可以造特定大小的缩略图，格式大概是这样
 
 ```
-https://i.pixiv.cat/c/<size>x<size>/img-master/img/{{datePath}}/{{pid}}_p{{p}}_<master|square>1200.jpg
+https://i.pixiv.re/c/<size>x<size>/img-master/img/{{datePath}}/{{pid}}_p{{p}}_<master|square>1200.jpg
 ```
 
 - `<size>x<size>`这里长宽必须相同，最大为`600x600`，某些特定的大小会需要加上固定的图片质量参数，就像`small`和`thumb`
