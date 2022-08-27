@@ -16,13 +16,7 @@
 5. 不接受任何索要数据库的请求（反正会有一堆人来爬的，去找他们要）
 6. 使用本 API 是你个人的行为，产生的任何问题都与我无关
 7. 请**节制**![](assets/img/jz.png)，冲太多对身体不好
-   <br><img src="/assets/img/lx.jpg" style="max-width:600px">
-
-## 最近一小时可用性
-
-炸了就说明有憨批搁那拿爬虫CC
-
-<iframe src="setu/availability.html" height="200" scrolling="no" style="border:none;margin:0"></iframe>
+   <br><img src="assets/img/lx.jpg" style="max-width:600px">
 
 ## Telegram Bot
 
