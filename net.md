@@ -10,6 +10,12 @@
 GET https://net.lolicon.app
 ```
 
+or
+
+```http
+GET https://net.lolicon.app/ip
+```
+
 ### User Agent
 
 ```http
@@ -24,13 +30,8 @@ GET https://net.lolicon.app/ua
 GET https://net.lolicon.app/detail
 ```
 
-| 字段名         | 数据类型 | 说明                                         |
-| -------------- | :------: | -------------------------------------------- |
-| `ip`           | `string` | IP                                           |
-| `headers`      | `object` | HTTP 请求头                                  |
-| `httpProtocol` | `string` | HTTP 协议版本                                |
-| `tlsVersion`   | `string` | TLS 版本                                     |
-| `tlsCipher`    | `string` | TLS 加密算法                                 |
-| `asn`          |  `int`   | ASN                                          |
-| `country`      | `string` | 两个字母表示的国家/地区代码                  |
-| `colo`         | `string` | 三个字母表示的请求命中的 CloudFlare 数据中心 |
+| 字段名    | 数据类型 | 说明                                                                                                                      |
+| --------- | :------: | ------------------------------------------------------------------------------------------------------------------------- |
+| `ip`      | `string` | IP                                                                                                                        |
+| `headers` | `object` | HTTP 请求头                                                                                                               |
+| `cf`      | `object` | 见 [Cloudflare Workers 文档](https://developers.cloudflare.com/workers/runtime-apis/request/#incomingrequestcfproperties) |
