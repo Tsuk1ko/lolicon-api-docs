@@ -86,3 +86,11 @@ pre::after {
 .h-100 {
   padding-bottom: 100%;
 }
+
+.spoiler {
+  color: black;
+  background-color: black;
+}
+.spoiler:hover {
+  color: white;
+}
