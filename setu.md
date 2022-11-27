@@ -50,7 +50,8 @@ Content-Type: application/json
 | `proxy`      |  `string`  |  `i.pixiv.re`  | 设置图片地址所使用的在线反代服务，[详见下文](#proxy)                                                          |
 | `dateAfter`  |   `int`    |                | 返回在这个时间及以后上传的作品；时间戳，单位为毫秒                                                            |
 | `dateBefore` |   `int`    |                | 返回在这个时间及以前上传的作品；时间戳，单位为毫秒                                                            |
-| `dsc`        | `boolean`  |    `false`     | 设置为任意真值以禁用对某些缩写`keyword`和`tag`的自动转换，[详见下文](#dsc)                                    |
+| `dsc`        | `boolean`  |    `false`     | 禁用对某些缩写`keyword`和`tag`的自动转换，[详见下文](#dsc)                                                    |
+| `excludeAI`  | `boolean`  |    `false`     | 排除 AI 作品                                                                                                  |
 
 #### 关于数组形式的参数
 
@@ -61,6 +62,12 @@ GET https://api.lolicon.app/setu/v2?size=original&size=regular
 ```
 
 在 POST 请求中，如果数组内仅有一个项，可以将数组省略，例如`{ "size": ["regular"] }`和`{ "size": "regular" }`是等价的
+
+#### 关于布尔值参数
+
+这些值被视为假值：`0`、`false`、`null`、前三者的字符串形式、空字符串
+
+其余值均被视为真值
 
 #### `tag`
 
@@ -193,7 +200,7 @@ gbf => 碧蓝幻想
 | `height`     |   `int`    | 原图高度 px                                                      |
 | `tags`       | `string[]` | 作品标签，包含标签的中文翻译（有的话）                           |
 | `ext`        |  `string`  | 图片扩展名                                                       |
-| `aiType`     |  `number`  | 是否是 AI 作品，`0` 未知（旧数据需要慢慢更新），`1` 不是，`2` 是 |
+| `aiType`     |  `number`  | 是否是 AI 作品，`0` 未知（旧画作或字段未更新），`1` 不是，`2` 是 |
 | `uploadDate` |   `int`    | 作品上传日期；时间戳，单位为毫秒                                 |
 | `urls`       |  `object`  | 包含了所有指定`size`的图片地址                                   |
 
